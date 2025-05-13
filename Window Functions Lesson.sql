@@ -75,9 +75,9 @@ SELECT
 	, ps.AdmittedDate
 	, ps.Tariff
 	, COUNT(*) OVER () AS TotalCount
---	, COUNT(*) OVER (PARTITION BY ps.Hospital) AS HospitalCount -- create a window over those rows with the same hospital as the current row
---	, COUNT(*) OVER (PARTITION BY ps.Ward) AS WardCount
---	, COUNT(*) OVER (PARTITION BY ps.Hospital , ps.Ward) AS HospitalWardCount
+	, COUNT(*) OVER (PARTITION BY ps.Hospital) AS HospitalCount -- create a window over those rows with the same hospital as the current row
+	, COUNT(*) OVER (PARTITION BY ps.Ward) AS WardCount
+	, COUNT(*) OVER (PARTITION BY ps.Hospital , ps.Ward) AS HospitalWardCount
 FROM
 	PatientStay ps
 ORDER BY
